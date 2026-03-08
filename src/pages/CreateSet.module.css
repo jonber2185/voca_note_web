@@ -1,0 +1,172 @@
+.wrapper {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.main {
+  width: 100%;
+  max-width: 480px;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.backLink {
+  background: none;
+  border: none;
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.headline {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 30px;
+}
+
+.field {
+  margin-bottom: 30px;
+}
+
+/* 사용자님 스타일 특유의 부드러운 인풋 */
+.titleInput {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--light-purple);
+  padding: 12px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: transparent;
+  color: var(--text-main);
+  transition: border-color 0.3s;
+}
+
+.titleInput:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+
+.descInput {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--light-purple);
+  font-size: 1rem;
+  background: transparent;
+  color: var(--text-sub);
+  resize: none;
+}
+
+.descInput:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+
+/* 슬라이드 스위치 섹션 */
+.statusField {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.statusLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* 전체 캡슐 컨테이너 */
+.slidingToggle {
+  position: relative;
+  display: flex;
+  background-color: #eee;
+  /* 비활성화 배경색 */
+  padding: 4px;
+  border-radius: 40px;
+  /* 아주 둥글게 */
+  width: 160px;
+  /* 고정 너비 */
+  height: 40px;
+  user-select: none;
+}
+
+/* 슥- 하고 움직이는 하얀색(혹은 테마색) 배경 */
+.glider {
+  position: absolute;
+  height: 32px;
+  width: 76px;
+  /* (전체너비 - 패딩*2) / 2 */
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+/* 비공개일 때 (왼쪽) */
+.glider.private {
+  transform: translateX(0);
+}
+
+/* 공개일 때 (오른쪽으로 이동) */
+.glider.public {
+  transform: translateX(76px);
+}
+
+.toggleBtn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #777;
+  cursor: pointer;
+  z-index: 2;
+  /* 글자가 슬라이더보다 위에 오도록 */
+  transition: color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 활성화된 버튼의 글자색 강조 */
+.toggleBtn.active {
+  color: var(--primary);
+}
+
+/* 생성 버튼 (보내주신 스타일 그대로 반영) */
+.createBtn {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 18px;
+  border-radius: var(--radius);
+  /* 20px */
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(99, 103, 255, 0.2);
+  transition: transform 0.2s, filter 0.2s;
+  margin-top: 50px;
+}
+
+.createBtn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.createBtn:disabled {
+  background: #ddd;
+  box-shadow: none;
+  cursor: not-allowed;
+}

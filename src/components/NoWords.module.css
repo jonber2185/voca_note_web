@@ -1,0 +1,86 @@
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  /* 🔹 아이콘이 미세하게 위아래로 둥둥 뜨는 효과 */
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.emptyText {
+  color: #888;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.emptyBtnGroup {
+  display: flex;
+  gap: 12px;
+}
+
+/* 🔹 뒤로가기 버튼: 왼쪽으로 통 튀는 효과 */
+.backBtn {
+  background: #f1f3ff;
+  color: var(--primary);
+  border: none;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.backBtn:hover {
+  transform: translateX(-5px);
+  /* 왼쪽으로 살짝 이동 */
+  background: #e8ebff;
+}
+
+.backBtn:active {
+  transform: translateX(-2px) scale(0.95);
+  transition: all 0.1s;
+}
+
+/* 🔹 홈 버튼: 위로 슥 떠오르는 효과 */
+.homeBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(99, 103, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.homeBtn:hover {
+  transform: translateY(-4px);
+  /* 위로 상승 */
+  box-shadow: 0 8px 20px rgba(99, 103, 255, 0.3);
+  filter: brightness(1.1);
+}
+
+.homeBtn:active {
+  transform: translateY(1px) scale(0.98);
+}

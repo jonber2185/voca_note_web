@@ -1,0 +1,130 @@
+.welcomeSection {
+  background: linear-gradient(135deg, var(--primary), var(--soft-pink));
+  /* 6367FF -> 8494FF */
+  border-radius: 24px;
+  padding: 40px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(99, 103, 255, 0.2);
+}
+
+.welcomeText h1 {
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+}
+
+.welcomeText h1 span {
+  color: var(--soft-pink);
+  /* FFDBFD */
+  text-decoration: underline;
+}
+
+.welcomeText p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.statsCard {
+  background: rgba(91, 91, 91, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 20px 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .welcomeSection {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    padding: 30px 20px;
+  }
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--light-purple);
+  /* C9BEFF */
+}
+
+.mainTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  /* 6367FF */
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.subTitle {
+  margin-top: 8px;
+  color: var(--text-sub);
+  font-size: 1rem;
+}
+
+.subTitle span {
+  color: var(--secondary);
+  /* 8494FF */
+  font-weight: bold;
+}
+
+.addBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(99, 103, 255, 0.3);
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+  background: var(--secondary);
+  box-shadow: 0 6px 20px rgba(99, 103, 255, 0.4);
+}
+
+.content {
+  margin-top: 20px;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .addBtn {
+    width: 100%;
+  }
+}

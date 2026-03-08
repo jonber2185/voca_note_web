@@ -1,0 +1,89 @@
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--light-purple);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(99, 103, 255, 0.05);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.logo span {
+  color: var(--secondary);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  transition: color 0.2s;
+  margin-right: 15px;
+}
+
+.link:hover {
+  color: var(--primary);
+}
+
+.loginBtn {
+  text-decoration: none;
+  color: var(--primary);
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.loginBtn:hover {
+  background-color: var(--soft-pink);
+  transform: scale(1.05);
+}
+
+.logoutBtn {
+  background: none;
+  border: 1px solid var(--light-purple);
+  color: var(--text-sub);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 6px 20px;
+}
+
+.logoutBtn:hover {
+  background-color: var(--light-purple);
+  color: var(--primary);
+}
+
+.welcome {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.welcome:hover {
+  color: var(--primary);
+}

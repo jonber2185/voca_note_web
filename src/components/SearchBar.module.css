@@ -1,0 +1,63 @@
+/* 검색 폼 (Wrapper) */
+.searchBar {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 30px;
+  background: #f1f3ff;
+  /* 매우 연한 보라빛 배경 */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 2px 12px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* 폼에 포커스가 갔을 때 테두리 강조 */
+.searchBar:focus-within {
+  background: white;
+  border-color: var(--secondary);
+  /* 8494FF */
+  box-shadow: 0 4px 12px rgba(99, 103, 255, 0.1);
+}
+
+/* 검색 버튼 (돋보기 아이콘 버튼) */
+.searchButton {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--primary);
+  /* 6367FF */
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+.searchButton:hover {
+  transform: scale(1.1);
+}
+
+/* 입력창 */
+.searchBar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px 5px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.searchBar input::placeholder {
+  color: var(--light-purple);
+  /* C9BEFF */
+}
+
+@media (max-width: 600px) {
+  .searchBar {
+    margin: 0 10px;
+  }
+}

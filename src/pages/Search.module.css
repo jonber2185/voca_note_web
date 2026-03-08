@@ -1,0 +1,215 @@
+/* --- 레이아웃 설정 --- */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- 헤더 영역 --- */
+.header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #f1f3ff;
+  padding-bottom: 20px;
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+/* 🔹 동적 효과: 뒤로가기 버튼 */
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+}
+
+.backBtn:hover {
+  color: var(--primary);
+  transform: translateX(-5px);
+  /* 왼쪽으로 살짝 밀림 */
+}
+
+.backBtn:active {
+  transform: translateX(-3px) scale(0.9);
+  transition: all 0.1s;
+}
+
+.header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.header h2 span {
+  color: var(--primary);
+}
+
+.count {
+  color: #999;
+  font-size: 0.95rem;
+  padding-left: 45px;
+}
+
+/* --- 섹션 공통 스타일 --- */
+.section {
+  margin-bottom: 50px;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionTitle span {
+  color: var(--primary);
+  font-weight: 900;
+}
+
+/* --- 사용자 검색 결과 (User Card) --- */
+.userSectionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.userCard {
+  background: #fdfdff;
+  border: 1px solid #f1f3ff;
+  border-radius: 24px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.userCard:hover {
+  box-shadow: 0 10px 30px rgba(99, 103, 255, 0.05);
+  border-color: var(--primary-light);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.userEmoji {
+  font-size: 1.2rem;
+  background: white;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.userName {
+  font-size: 1.05rem;
+  color: #666;
+}
+
+.userName strong {
+  color: var(--text-main);
+  font-weight: 800;
+  margin-right: 2px;
+}
+
+/* --- 로딩 및 결과 없음 --- */
+.loadingArea {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 4px solid #f0f2ff;
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.noResult {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f9faff;
+  border-radius: 30px;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+/* 🔹 동적 효과: 메인으로 버튼 */
+.goHome {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  margin-top: 15px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(99, 103, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.goHome:hover {
+  transform: translateY(-4px);
+  /* 위로 슥 떠오름 */
+  box-shadow: 0 10px 25px rgba(99, 103, 255, 0.35);
+  filter: brightness(1.1);
+}
+
+.goHome:active {
+  transform: translateY(1px);
+  /* 바닥에 꾹 눌림 */
+  box-shadow: 0 2px 5px rgba(99, 103, 255, 0.2);
+}
+
+/* --- 단어장 그리드 --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}

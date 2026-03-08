@@ -1,0 +1,43 @@
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 30px;
+  border: 1px solid rgba(201, 190, 255, 0.3);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary);
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+.card p {
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  margin: 4px 0 16px;
+}
+
+.studyBtn {
+  margin-top: 0px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.studyBtn:hover {
+  background-color: var(--secondary);
+}

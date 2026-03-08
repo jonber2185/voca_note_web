@@ -1,0 +1,48 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  /* 뒤로가기 버튼 배치를 위해 */
+}
+
+.backLink {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: var(--secondary);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--primary);
+}
+
+.stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+  color: var(--text-sub);
+  font-size: 0.9rem;
+}
+
+.activeStep {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.arrow {
+  color: #ddd;
+}

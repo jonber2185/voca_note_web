@@ -1,0 +1,181 @@
+/* 1. 전체 레이아웃 및 컨테이너 */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. 상단 헤더 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--text-sub);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.backBtn:hover {
+  color: var(--error-color);
+}
+
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-color);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.current {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.divider {
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.total {
+  color: #999;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* 3. 문제 카드 영역 */
+.quizArea {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.questionCard {
+  background: white;
+  padding: 50px 20px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f3ff;
+}
+
+.wordTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.subLabel {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 700;
+  background: rgba(99, 103, 255, 0.1);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+/* 4. 보기 버튼 그리드 */
+.optionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.optionBtn {
+  width: 100%;
+  padding: 18px 22px;
+  border-radius: 16px;
+  border: 1.5px solid #f1f3ff;
+  background: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: left;
+}
+
+.optionBtn:hover:not(:disabled) {
+  border-color: var(--light-purple);
+  background: var(--bg-color);
+  transform: translateY(-2px);
+}
+
+/* 정답 선택 시 (초록색) */
+.optionBtn.correct {
+  background: #f0fff4 !important;
+  border-color: #48bb78 !important;
+  color: #2f855a !important;
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 오답 클릭 시 나타나는 정답 강조 효과 */
+.correctHighlight {
+  border-color: #48bb78 !important;
+  background: rgba(72, 187, 120, 0.05);
+  box-shadow: 0 0 0 2px rgba(72, 187, 120, 0.2);
+}
+
+/* 오답 선택 시 (빨간색) */
+.optionBtn.wrong {
+  background: #fff5f5 !important;
+  border-color: #f56565 !important;
+  color: #c53030 !important;
+}
+
+/* 5. 하단 버튼 */
+.nextBtn {
+  margin-top: 25px;
+  width: 100%;
+  height: 58px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(99, 103, 255, 0.25);
+  transition: all 0.2s;
+}
+
+.nextBtn:hover {
+  background: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(99, 103, 255, 0.35);
+}
+
+.nextBtn:active {
+  transform: translateY(0);
+}
+
+/* 로딩 상태 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: 800;
+  color: var(--text-sub);
+  font-size: 1.2rem;
+}
