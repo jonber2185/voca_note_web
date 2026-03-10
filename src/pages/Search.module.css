@@ -20,7 +20,7 @@
 
 /* --- 헤더 영역 --- */
 .header {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #f1f3ff;
   padding-bottom: 20px;
 }
@@ -76,19 +76,75 @@
 /* --- 섹션 공통 스타일 --- */
 .section {
   margin-bottom: 50px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  /* 전체를 감싸는 부드러운 박스 느낌 */
 }
+
+.userHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.userEmoji {
+  font-size: 1.5rem;
+}
+
+/* 🔹 가로 스크롤을 가능하게 하는 바깥 박스 */
+.horizontalScrollWrapper {
+  width: 100%;
+  overflow-x: auto;
+  /* 가로 스크롤 허용 */
+  padding: 20px;
+  padding-bottom: 30px;
+  /* 스크롤바 숨기기 */
+  -ms-overflow-style: none;
+  /* IE */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.horizontalScrollWrapper::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+/* 🔹 Sets 컴포넌트 내부의 아이템들을 강제로 가로 배치 */
+.horizontalScrollContent>div {
+  display: flex !important;
+  /* 기존 Grid 무시 */
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  /* 줄바꿈 방지 */
+  gap: 16px;
+  width: max-content;
+  /* 내용물만큼 가로로 길어짐 */
+}
+
+/* 🔹 각 카드(SetCard)의 크기 고정 */
+.horizontalScrollContent div>div {
+  flex-shrink: 0;
+  /* 크기 압축 방지 */
+  width: 260px;
+  /* 카드 너비 지정 */
+}
+
 
 .sectionTitle {
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
 }
 
-.sectionTitle span {
+.sectionTitle strong {
   color: var(--primary);
   font-weight: 900;
 }
@@ -125,7 +181,7 @@
 .userEmoji {
   font-size: 1.2rem;
   background: white;
-  padding: 8px;
+  padding: 8px 12px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
@@ -139,6 +195,31 @@
   color: var(--text-main);
   font-weight: 800;
   margin-right: 2px;
+}
+
+/* --- 섹션 공통 스타일 --- */
+.setSection {
+  margin-bottom: 50px;
+  padding: 10px 0;
+  /* 전체를 감싸는 부드러운 박스 느낌 */
+}
+
+.setSectionTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.setSectionTitle span {
+  color: var(--primary);
+  font-weight: 900;
+}
+
+.setGrid {
+  padding-top: 20px;
 }
 
 /* --- 로딩 및 결과 없음 --- */

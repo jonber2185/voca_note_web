@@ -9,7 +9,7 @@ export default function Search() {
   const navigate = useNavigate();
   const query = searchParams.get('q');
 
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -68,28 +68,28 @@ export default function Search() {
               {/* 🔹 1. 사용자 중심 검색 결과: "{user}님의 단어장" */}
               {userResults.length > 0 && (
                 <section className={styles.section}>
-                  <h3 className={styles.sectionTitle}>사용자 검색</h3>
-                  <div className={styles.userSectionGrid}>
-                    {userResults.map(u => (
-                      <div key={u.id} className={styles.userCard}>
-                        <div className={styles.userInfo} onClick={() => navigate(`/profile/${u.id}`)}>
-                          <span className={styles.userEmoji}>👤</span>
-                          <span className={styles.userName}><strong>{query}</strong>님의 단어장</span>
-                        </div>
-                        {/* 🔹 해당 유저의 대표 세트 하나 혹은 리스트를 보여줄 수 있음 */}
-                        <div className={styles.userSetPreview}>
-                          <Sets datas={[u]} />
-                        </div>
-                      </div>
-                    ))}
+                  {/* 상단 유저 정보 (한 번만 표시) */}
+                  <div className={styles.userHeader} onClick={() => navigate(`/profile/${userResults[0].owner_id}`)}>
+                    <span className={styles.userEmoji}>👤</span>
+                    <h3 className={styles.sectionTitle}>
+                      <strong>{query}</strong>님의 단어장
+                    </h3>
+                  </div>
+
+                  {/* 🔹 가로 슬라이드 컨테이너 */}
+                  <div className={styles.horizontalScrollWrapper}>
+                    <div className={styles.horizontalScrollContent}>
+                      {/* 모든 결과 데이터를 Sets에 한꺼번에 전달 */}
+                      <Sets datas={userResults} />
+                    </div>
                   </div>
                 </section>
               )}
 
               {/* 🔹 2. 단어장 이름 중심 검색 결과: "단어장 이름으로 검색 결과" */}
               {enSetResults.length > 0 && (
-                <section className={styles.section}>
-                  <h3 className={styles.sectionTitle}>
+                <section className={styles.setSection}>
+                  <h3 className={styles.setSectionTitle}>
                     단어장 이름 <span>"{query}"</span> 검색 결과
                   </h3>
                   <div className={styles.setGrid}>
