@@ -17,8 +17,8 @@ export default function AddWords1({ onAnalysisComplete, setId, rawText, setRawTe
     const value = e.target.value;
     const count = getLineCount(value);
 
-    if (count > 25) {
-      setError('한번에 최대 25단어만 입력 가능합니다.');
+    if (count > 12) {
+      setError('한번에 최대 12단어만 입력 가능합니다.');
     } else {
       setError('');
     }
@@ -28,7 +28,7 @@ export default function AddWords1({ onAnalysisComplete, setId, rawText, setRawTe
   const handleAnalyze = async () => {
     const inputWords = rawText.split('\n').map(w => w.trim()).filter(w => w !== "");
     if (inputWords.length === 0) return setError("단어를 입력해주세요.");
-    if (wordCount > 25) return; // 25개 넘으면 실행 방지
+    if (wordCount > 12) return; // 25개 넘으면 실행 방지
 
     try {
       setIsLoading(true);
@@ -78,13 +78,13 @@ export default function AddWords1({ onAnalysisComplete, setId, rawText, setRawTe
     <div className={styles.inputArea}>
       <div className={styles.guideRow}>
         <p className={styles.guide}>영어 단어를 한 줄에 하나씩 입력하세요.</p>
-        <span className={`${styles.counter} ${wordCount > 25 ? styles.limit : ''}`}>
-          {wordCount} / 25
+        <span className={`${styles.counter} ${wordCount > 12 ? styles.limit : ''}`}>
+          {wordCount} / 12
         </span>
       </div>
 
       <textarea
-        className={`${styles.textarea} ${(error || wordCount > 25) ? styles.inputError : ''}`}
+        className={`${styles.textarea} ${(error || wordCount > 12) ? styles.inputError : ''}`}
         value={rawText}
         onChange={handleTextChange}
         placeholder="apple&#13;&#10;banana&#13;&#10;promote..."
@@ -116,7 +116,7 @@ export default function AddWords1({ onAnalysisComplete, setId, rawText, setRawTe
       <button
         className={styles.mainBtn}
         onClick={handleAnalyze}
-        disabled={wordCount === 0 || wordCount > 25}
+        disabled={wordCount === 0 || wordCount > 12}
       >
         단어 분석하기
       </button>
