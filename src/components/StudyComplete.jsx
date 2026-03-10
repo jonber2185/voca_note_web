@@ -1,7 +1,7 @@
 import styles from './StudyComplete.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function StudyComplete({ totalCount, wrongCount, onRestart, onRetryWrong }) {
+export default function StudyComplete({ totalCount, wrongCount = 0, onRestart, onRetryWrong }) {
   const navigate = useNavigate();
   const isPerfect = wrongCount === 0;
 
