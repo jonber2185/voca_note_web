@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/NavBar";
+import NavBar from "./components/NavBar";
 import PrivateNotice from "./pages/PrivateNotice";
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
@@ -17,7 +17,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <>
-      <Navbar />
+      <NavBar />
       <Routes>
         <Route path="/private-notice" element={<PrivateNotice />} />
         <Route path="/" element={<Home />} />

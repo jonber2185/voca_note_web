@@ -8,7 +8,6 @@ export default function Signup() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     user_id: '',
-    username: '',
     password: '',
     confirmPassword: '' // 비밀번호 확인 추가
   });
@@ -17,7 +16,7 @@ export default function Signup() {
 
   // 실시간 검증
   const isPasswordMatch = formData.password === formData.confirmPassword;
-  const isFormValid = formData.user_id && formData.username && formData.password && isPasswordMatch;
+  const isFormValid = formData.user_id && formData.password && isPasswordMatch;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,10 +62,6 @@ export default function Signup() {
           <input
             type="text" name="user_id" placeholder="아이디"
             value={formData.user_id} onChange={handleChange} required
-          />
-          <input
-            type="text" name="username" placeholder="이름"
-            value={formData.username} onChange={handleChange} required
           />
           <input
             type="password" name="password" placeholder="비밀번호"

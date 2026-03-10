@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import styles from './Navbar.module.css';
+import styles from './NavBar.module.css';
 import { useAuth } from '../contexts/AuthContext';
 import SearchBar from './SearchBar';
 
-export default function Navbar() {
+export default function NavBar() {
   const { user, logout, isLoading } = useAuth();
-  const isLoggedIn = user?.name;
+  const isLoggedIn = user?.user_id;
 
   return (
     <nav className={styles.navbar}>
@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className={styles.menu}>
           {isLoggedIn ? (
             <>
-              {isLoading && <Link to="/my" className={styles.welcome}>{user.name}님 환영해요!</Link>}
+              {isLoading && <Link to="/my" className={styles.welcome}>{user.user_id}님 환영해요!</Link>}
               <Link to='/' onClick={logout} className={styles.logoutBtn}>로그아웃</Link>
             </>
           ) : (

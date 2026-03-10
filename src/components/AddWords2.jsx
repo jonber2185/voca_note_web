@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import styles from './AddWords2.module.css';
 import axios from '../lib/axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function AddWords2({ analyzedList, setAnalyzedList, setId, user, onBack }) {
   const navigate = useNavigate();
+  const [isLoading, setIsloading] = useState(false);
 
   const toggleMeaning = (wordIdx, meanIdx) => {
     setAnalyzedList(prev => prev.map((item, idx) => {
@@ -19,6 +21,7 @@ export default function AddWords2({ analyzedList, setAnalyzedList, setId, user, 
   };
 
   const handleSave = async () => {
+    setIsloading(true);
     try {
       await axios.post(`/words/${user.user_id}/${setId}`, {
         words: analyzedList.map(item => ({ word_id: item.id, meaning: item.meaning }))
@@ -26,6 +29,8 @@ export default function AddWords2({ analyzedList, setAnalyzedList, setId, user, 
       navigate(`/${user.user_id}/${setId}`, { state: { create: true }, replace: true });
     } catch (err) {
       alert("저장 실패");
+    } finally {
+      setIsloading(false);
     }
   };
 
@@ -51,7 +56,7 @@ export default function AddWords2({ analyzedList, setAnalyzedList, setId, user, 
       </div>
       <div className={styles.footer}>
         <button onClick={onBack}>수정</button>
-        <button onClick={handleSave}>이대로 등록하기</button>
+        <button disabled={isLoading} onClick={handleSave}>이대로 등록하기</button>
       </div>
     </div>
   );

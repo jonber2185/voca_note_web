@@ -85,9 +85,18 @@ export default function StudyWrite() {
     if (showAnswer || !userInput.trim()) return;
 
     const current = questions[currentIndex];
-    const userAnswers = userInput.split(',').map(str => str.trim().replace(/\s/g, ''))
-    const validAnswers = current.answers.map(ans => ans.replace(/\s/g, ''));
 
+    const userAnswers = userInput.split(',').map(str => str.trim().replace(/\s/g, ''));
+
+    const validAnswers = current.answers.flatMap(ans => {
+      const original = ans.replace(/\s/g, ''); // 원본 (공백제거)
+      const stripped = ans.replace(/\([^)]*\)/g, '').trim().replace(/\s/g, ''); // 괄호 제거 버전
+
+      // 원본과 괄호 제거 버전이 다를 경우에만 두 개 다 정답 후보로 넣음
+      return original === stripped ? [original] : [original, stripped];
+    });
+
+    // 입력한 값이 정답 후보(validAnswers)에 포함되는지 확인
     const isRight = userAnswers.length > 0 && userAnswers.every(userAns =>
       validAnswers.includes(userAns)
     );

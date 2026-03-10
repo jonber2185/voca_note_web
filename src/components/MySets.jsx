@@ -35,7 +35,7 @@ export default function MySet() {
     <>
       <section className={styles.welcomeSection}>
         <div className={styles.welcomeText}>
-          <h1>반가워요, <span>{user.name}</span>님! 👋</h1>
+          <h1>반가워요, <span>{user.user_id}</span>님! 👋</h1>
           <p>오늘은 어떤 단어들을 정복해볼까요? 열공하세요!</p>
         </div>
         <div className={styles.statsCard}>

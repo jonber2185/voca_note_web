@@ -1,14 +1,13 @@
 import axios from '../lib/axios';
 import { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import { getDeviceId, getOrSetDeviceId } from '../lib/getDevice';
-import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState({
     user_id: null,
-    name: null,
     device_id: null,
   });
   const [isLoading, setIsLoading] = useState(true);
@@ -21,13 +20,11 @@ export function AuthProvider({ children }) {
       // 🔹 유저 정보가 있으면 업데이트 (이동 로직 삭제!)
       setUser({
         user_id: response.data.user_id,
-        name: response.data.username,
         device_id: current_device_id,
       });
     } catch (error) {
       setUser({
         user_id: null,
-        name: null,
         device_id: null
       });
     } finally {
@@ -43,7 +40,6 @@ export function AuthProvider({ children }) {
     });
     setUser({
       user_id: response.data.user_id,
-      name: response.data.username,
       device_id: device_id,
     });
   };
@@ -53,16 +49,8 @@ export function AuthProvider({ children }) {
     await axios.post('/auth/logout', { device_id: device_id, });
     setUser({
       user_id: null,
-      name: null,
       device_id: null,
     });
-  };
-
-  const updateName = async (newName) => {
-    setUser(prev => ({
-      ...prev,
-      name: newName
-    }));
   };
 
   useEffect(() => {
@@ -70,7 +58,7 @@ export function AuthProvider({ children }) {
   }, [checkLoginStatus]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, updateName, isLoading }}>
+    <AuthContext.Provider value={{ user, login, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
