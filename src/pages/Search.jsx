@@ -9,7 +9,7 @@ export default function Search() {
   const navigate = useNavigate();
   const query = searchParams.get('q');
 
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
